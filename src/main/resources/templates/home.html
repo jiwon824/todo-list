@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: header}">
+    <meta charset="UTF-8">
+    <script src="/js/todo.js"></script>
+</head>
+<body>
+<div class="container">
+    <div th:replace="~{fragments/bodyHeader :: bodyHeader}"/>
+
+    <h1 class="mb-4">Todo</h1>
+
+    <!-- 할 일 목록 컨테이너 -->
+    <div id="todo-container">
+        <div th:each="todo : ${todos}" class="todo-item d-flex align-items-center mb-3" th:data-id="${todo.id}">
+            <!-- 체크박스 -->
+            <input id="todo-name" class="form-check-input todo-checkbox me-2" type="checkbox" th:checked="${todo.isDone}">
+
+            <!-- 할일 이름 -->
+            <label for="todo-name" th:text="${todo.name}" class="form-check-label todo-text flex-grow-1"></label>
+
+            <!-- 더보기 드롭다운 -->
+            <div class="dropdown">
+                <button class="btn btn-outline-secondary" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-three-dots" viewBox="0 0 16 16">
+                        <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                    </svg>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <button class="dropdown-item btn update-btn" onclick="updateTodo(this)">수정</button>
+                    </li>
+                    <li>
+                        <button class="dropdown-item btn remove-btn" onclick="deleteTodo(this)">삭제</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 할 일 입력 -->
+    <form id="todo-form" class="input-group mb-3" method="post" action="/todos">
+        <input type="text" class="form-control" placeholder="할 일을 입력하세요."
+               aria-label="todo" name="name"
+               th:value="${todoForm != null ? todoForm.name : ''}" required>
+        <button class="btn btn-outline-secondary" type="submit">추가</button>
+    </form>
+
+    <div th:replace="~{fragments/footer :: footer}"/>
+</div> <!-- /container -->
+</body>
+</html>
