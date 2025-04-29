@@ -12,8 +12,10 @@ padding-right: 15px;
 }
 /* Custom page header */
 .header {
+font-size: 1.5rem;
 border-bottom: 1px solid #e5e5e5;
 }
+
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
 margin-top: 0;
@@ -52,21 +54,63 @@ margin: 40px 0;
 .marketing p + h4 {
 margin-top: 28px;
 }
+
+/* bodyHeader */
+#header-container.masthead{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+#header-left.masthead{
+
+}
+#header-right.masthead{
+
+}
+
+/* home.html*/
+.form-check-input {
+    position: static !important;
+    margin-left: 0 !important;
+    margin-top: 0.1rem;
+}
+
+.todo-text {
+  margin-left: 0.5rem;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap; /* 공간 부족하면 자동 줄바꿈 */
+}
+
+main > section {
+  flex: 1;
+  min-width: 300px;
+  margin: 0px 16px;
+}
+article{
+    padding: 0px 16px 16px;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-/* Remove the padding we set earlier */
-.header,
-.marketing,
-.footer {
-padding-left: 0;
-padding-right: 0;
-}
-/* Space out the masthead */
-.header {
-margin-bottom: 30px;
-}
-/* Remove the bottom border on the jumbotron for visual effect */
-.jumbotron {
-border-bottom: 0;
-}
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+        padding-left: 2rem;;
+        padding-right: 2rem;;
+    }
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 16px;
+    }
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+    border-bottom: 0;
+    }
 }
