@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<div class="header" th:fragment="bodyHeader">
-  <ul class="nav nav-pills pull-right">
-    <li><a href="/">Home</a></li>
-  </ul>
-  <a href="/"><h3 class="text-muted">TodoList</h3></a>
+<div id = "header-container" class="header masthead" th:fragment="bodyHeader">
+  <div id = "header-left" class="masthead">
+    <a href="/menu" class="menu-toggle"><i class="bi bi-list"></i></a>
+    <a href="/" class="site-title text-dark">All You Have Todo is</a>
+  </div>
+  <div id = "header-right" class="masthead">
+    <span class="date-display">Date</span>
+  </div>
 </div>
