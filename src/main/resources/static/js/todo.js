@@ -23,18 +23,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const input = document.createElement("input");
         input.setAttribute("type", "text");
-        input.setAttribute("class", "form-control todo-edit-input");
+        input.setAttribute("class", "form-control me-2 todo-edit-input");
         input.setAttribute("value", text);
 
-        const colDiv = todoItem.querySelector(".col");
-        colDiv.appendChild(input);
+        const leftSection = todoItem.querySelector(".d-flex.align-items-center"); // 텍스트 있는 쪽
+        leftSection.appendChild(input);
 
         const dropdownContainer = todoItem.querySelector(".dropdown");
         dropdownContainer.style.display = "none";
 
         const saveButton = document.createElement("button");
         saveButton.setAttribute("type", "button");
-        saveButton.setAttribute("class", "btn btn-outline-primary");
+        saveButton.setAttribute("class", "btn btn-outline-primary ms-2");
         saveButton.innerText = "저장";
         saveButton.addEventListener("click", function () {
             saveUpdatedTodo(todoItem, todoId);
