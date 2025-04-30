@@ -48,16 +48,22 @@ article{
     padding: 0px 16px 16px;
 }
 
-.article-header>h4{
-    color: #595959;
-}
-
 /* article header */
 .article-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
+}
+
+.article-header>h4{
+    color: #595959;
+}
+
+.article-header>button{
+    padding: 0 20px;
+    border-radius: 20px;
+    border-width: thin;
 }
 
 /* Customize container-checkbox layout */
