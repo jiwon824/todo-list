@@ -40,6 +40,20 @@ body>header {
 	border-top: 1px solid #e5e5e5;
 }
 /* Customize container */
+main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+main > section {
+  flex: 1;
+  min-width: 300px;
+  margin: 0px 16px;
+}
+article{
+    padding: 0px 16px 16px;
+}
+
 @media (min-width:768px) {
 	.container {
 		max-width:730px;
