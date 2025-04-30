@@ -39,6 +39,7 @@ body>header {
 	color:#777;
 	border-top: 1px solid #e5e5e5;
 }
+
 /* Customize container */
 main {
   display: flex;
@@ -52,6 +53,17 @@ main > section {
 }
 article{
     padding: 0px 16px 16px;
+}
+
+/* Customize container-checkbox layout */
+.form-check-input {
+    position: static !important;
+    margin-left: 0 !important;
+    margin-top: 0.1rem;
+}
+
+.todo-text {
+  margin-left: 0.5rem;
 }
 
 @media (min-width:768px) {
