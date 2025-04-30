@@ -13,7 +13,11 @@
     <section id="tasks-section" class="section-tasks">
         <!-- 할 일 목록(Task) 컨테이너 -->
         <article id="task-list" class="task-container">
-            <h3>Task</h3>
+            <div class="article-header">
+                <h4>Task</h4>
+                <button class="add-btn">add+</button>
+            </div>
+
             <div th:each="todo : ${todos}" class="todo-item d-flex align-items-center justify-content-between mb-3" th:data-id="${todo.id}">
                 <!-- 왼쪽: 체크박스 + 텍스트 -->
                 <div class="d-flex align-items-center flex-grow-1">
@@ -44,7 +48,10 @@
 
         <!-- Memo 목록 -->
         <article id="memo-list" class="memo-container">
-            <h3>Memo</h3>
+            <div class="article-header">
+                <h4>Memo</h4>
+                <button class="add-btn">add+</button>
+            </div>
         </article>
 
     </section>
@@ -52,7 +59,10 @@
     <!-- Time Tracker 영역 -->
     <section id="time-tracker-section" class="section-time-tracker">
         <article id="time-tracker" class="time-tracker-container">
-            <h3>Time Tracker</h3>
+            <div class="article-header">
+                <h4>Time Tracker</h4>
+                <button class="add-btn">add+</button>
+            </div>
         </article>
     </section>
 </main>

@@ -10,7 +10,7 @@ body {
 }
 /* Custom page header */
 .header {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
 	border-bottom: 1px solid #e5e5e5;
 }
 
@@ -43,8 +43,21 @@ main > section {
   min-width: 300px;
   margin: 0px 16px;
 }
+
 article{
     padding: 0px 16px 16px;
+}
+
+.article-header>h4{
+    color: #595959;
+}
+
+/* article header */
+.article-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 /* Customize container-checkbox layout */
