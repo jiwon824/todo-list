@@ -37,13 +37,6 @@
                     </ul>
                 </div>
             </div>
-
-            <!-- 할 일 입력 -->
-            <form id="todo-form" class="input-group mt-4" method="post" action="/todos">
-                <input type="text" class="form-control" placeholder="할 일을 입력하세요." name="name"
-                       th:value="${todoForm != null ? todoForm.name : ''}" required>
-                <button class="btn btn-outline-secondary" type="submit">추가</button>
-            </form>
         </article>
 
         <!-- Memo 목록 -->
