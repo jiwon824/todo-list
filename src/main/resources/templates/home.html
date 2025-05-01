@@ -2,53 +2,72 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/header :: header}">
     <meta charset="UTF-8">
-    <script src="/js/todo.js"></script>
 </head>
 <body>
-<div class="container">
+<header>
     <div th:replace="~{fragments/bodyHeader :: bodyHeader}"/>
+</header>
 
-    <h1 class="mb-4">Todo</h1>
-
-    <!-- 할 일 목록 컨테이너 -->
-    <div id="todo-container">
-        <div th:each="todo : ${todos}" class="todo-item d-flex align-items-center mb-3" th:data-id="${todo.id}">
-            <!-- 체크박스 -->
-            <input id="todo-name" class="form-check-input todo-checkbox me-2" type="checkbox" th:checked="${todo.isDone}">
-
-            <!-- 할일 이름 -->
-            <label for="todo-name" th:text="${todo.name}" class="form-check-label todo-text flex-grow-1"></label>
-
-            <!-- 더보기 드롭다운 -->
-            <div class="dropdown">
-                <button class="btn btn-outline-secondary" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                         class="bi bi-three-dots" viewBox="0 0 16 16">
-                        <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
-                    </svg>
-                </button>
-                <ul class="dropdown-menu">
-                    <li>
-                        <button class="dropdown-item btn update-btn" onclick="updateTodo(this)">수정</button>
-                    </li>
-                    <li>
-                        <button class="dropdown-item btn remove-btn" onclick="deleteTodo(this)">삭제</button>
-                    </li>
-                </ul>
+<main role='main'>
+    <!-- Task + Memo-->
+    <section id="tasks-section" class="section-tasks">
+        <!-- 할 일 목록(Task) 컨테이너 -->
+        <article id="task-list" class="task-container">
+            <div class="article-header">
+                <h4>Task</h4>
+                <button class="add-btn">add+</button>
             </div>
-        </div>
-    </div>
 
-    <!-- 할 일 입력 -->
-    <form id="todo-form" class="input-group mb-3" method="post" action="/todos">
-        <input type="text" class="form-control" placeholder="할 일을 입력하세요."
-               aria-label="todo" name="name"
-               th:value="${todoForm != null ? todoForm.name : ''}" required>
-        <button class="btn btn-outline-secondary" type="submit">추가</button>
-    </form>
+            <div th:each="todo : ${todos}" class="todo-item d-flex align-items-center justify-content-between mb-3" th:data-id="${todo.id}">
+                <!-- 왼쪽: 체크박스 + 텍스트 -->
+                <div class="d-flex align-items-center flex-grow-1">
+                    <input th:id="'todo-name-' + ${todo.id}" class="form-check-input todo-checkbox me-2" type="checkbox"
+                           th:checked="${todo.isDone}">
+                    <label th:for="'todo-name-' + ${todo.id}" th:text="${todo.name}" class="form-check-label todo-text mb-0"></label>
+                </div>
+
+                <!-- 오른쪽: 드롭다운 -->
+                <div class="dropdown ms-2">
+                    <button class="btn btn-outline-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-three-dots"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><button class="dropdown-item update-btn" onclick="updateTodo(this)">수정</button></li>
+                        <li><button class="dropdown-item remove-btn" onclick="deleteTodo(this)">삭제</button></li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <!-- Memo 목록 -->
+        <article id="memo-list" class="memo-container">
+            <div class="article-header">
+                <h4>Memo</h4>
+                <button class="add-btn">add+</button>
+            </div>
+            <div class="memo-content">
+
+            </div>
+        </article>
+
+    </section>
+
+    <!-- Time Tracker 영역 -->
+    <section id="time-tracker-section" class="section-time-tracker">
+        <article id="time-tracker" class="time-tracker-container">
+            <div class="article-header">
+                <h4>Time Tracker</h4>
+                <button class="add-btn">add+</button>
+            </div>
+            <div class="time-tracker-content">
+
+            </div>
+        </article>
+    </section>
+</main>
 
     <div th:replace="~{fragments/footer :: footer}"/>
 </div> <!-- /container -->
+<script src="/js/todo.js"></script>
 </body>
 </html>

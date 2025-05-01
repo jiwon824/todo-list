@@ -1,72 +1,101 @@
 /* Space out content a bit */
 body {
-padding-top: 20px;
-padding-bottom: 20px;
+	padding-top:20px;
+	padding-bottom: 20px;
 }
 /* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-padding-left: 15px;
-padding-right: 15px;
+.header,.footer {
+	padding-left:15px;
+	padding-right: 15px;
 }
 /* Custom page header */
 .header {
-border-bottom: 1px solid #e5e5e5;
+    font-size: 1.8rem;
+	border-bottom: 1px solid #e5e5e5;
 }
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-margin-top: 0;
-margin-bottom: 0;
-line-height: 40px;
-padding-bottom: 19px;
+
+body>header {
+    margin-bottom: 1rem;
 }
+
+#header-container.masthead {
+	display:flex;
+	flex-direction:row;
+	align-items:center;
+	justify-content: space-between;
+}
+
 /* Custom page footer */
 .footer {
-padding-top: 19px;
-color: #777;
-border-top: 1px solid #e5e5e5;
+	padding-top:19px;
+	color:#777;
+	border-top: 1px solid #e5e5e5;
 }
+
 /* Customize container */
-@media (min-width: 768px) {
-.container {
-max-width: 730px;
+main {
+  display: flex;
+  flex-wrap: wrap;
 }
+
+main > section {
+  flex: 1;
+  min-width: 300px;
+  margin: 0px 16px;
 }
-.container-narrow > hr {
-margin: 30px 0;
+
+article{
+    padding: 0px 16px 16px;
 }
-/* Main marketing message and sign up button */
-.jumbotron {
-text-align: center;
-border-bottom: 1px solid #e5e5e5;
+
+/* article header */
+.article-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
 }
-.jumbotron .btn {
-font-size: 21px;
-padding: 14px 24px;
+
+.article-header>h4{
+    color: #595959;
+    margin-top:0.5rem;
+    margin-right: 1rem;
+    margin-bottom:0.5rem;
 }
-/* Supporting marketing content */
-.marketing {
-margin: 40px 0;
+
+.article-header>button{
+    padding: 0px 20px;
+    margin-left: 1rem;
+    border-radius: 20px;
+    border-width: thin;
+    font-size: 1.1rem;
 }
-.marketing p + h4 {
-margin-top: 28px;
+
+/* Customize container-checkbox layout */
+.form-check-input {
+    position: static !important;
+    margin-left: 0 !important;
+    margin-top: 0.1rem;
 }
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-/* Remove the padding we set earlier */
-.header,
-.marketing,
-.footer {
-padding-left: 0;
-padding-right: 0;
+
+.todo-text {
+    margin-left: 0.5rem;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
-/* Space out the masthead */
-.header {
-margin-bottom: 30px;
+
+.memo-content{
+    min-height: 100px;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+     
+    white-space: pre-wrap;
+    word-wrap: break-word;    /* 단어 너무 길면 끊어줌 */
+    overflow-wrap: break-word;
 }
-/* Remove the bottom border on the jumbotron for visual effect */
-.jumbotron {
-border-bottom: 0;
-}
+@media (min-width:768px) {
+	.container {
+		max-width:730px;
+	}
 }
