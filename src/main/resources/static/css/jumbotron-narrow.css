@@ -84,6 +84,16 @@ article{
     word-break: break-word;
 }
 
+.memo-content{
+    min-height: 100px;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+     
+    white-space: pre-wrap;
+    word-wrap: break-word;    /* 단어 너무 길면 끊어줌 */
+    overflow-wrap: break-word;
+}
 @media (min-width:768px) {
 	.container {
 		max-width:730px;
