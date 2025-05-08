@@ -18,5 +18,6 @@ public class Member {
 
     private String name;
 
+    @OneToMany(mappedBy = "userId")
     private List<Todo> todos = new ArrayList<>();
 }

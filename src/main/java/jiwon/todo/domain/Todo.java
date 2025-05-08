@@ -1,8 +1,6 @@
 package jiwon.todo.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,7 +14,12 @@ import java.time.LocalDateTime;
 public class Todo {
 
     @Id @GeneratedValue
+    @Column(name = "todo_id")
     private Long id; // PK
+
+    @ManyToOne
+    @JoinColumn(name = "member_id")
+    private Long userId;
 
     private String name; // 할 일 이름
     private Boolean isDone; // 완료 여부
