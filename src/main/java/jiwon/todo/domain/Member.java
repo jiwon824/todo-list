@@ -20,4 +20,10 @@ public class Member {
 
     @OneToMany(mappedBy = "userId")
     private List<Todo> todos = new ArrayList<>();
+
+    // == 연관관계 편의 메서드 ==
+    public void addTodo(Todo todo) {
+        todos.add(todo);
+        todo.setMember(this); // 연관관계 주인도 설정해줌
+    }
 }

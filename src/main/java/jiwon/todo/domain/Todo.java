@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDateTime;
 
@@ -38,5 +37,10 @@ public class Todo {
         this.name = name;
         this.isDone = isDone;
         updatedAt = LocalDateTime.now();
+    }
+
+    // protected 로 제한적 접근
+    protected void setMember(Member member) {
+        this.member = member;
     }
 }
