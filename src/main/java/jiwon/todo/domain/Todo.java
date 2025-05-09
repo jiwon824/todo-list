@@ -17,9 +17,9 @@ public class Todo {
     @Column(name = "todo_id")
     private Long id; // PK
 
-    @ManyToOne
-    @JoinColumn(name = "member_id")
-    private Long userId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id") // FK
+    private Member member;
 
     private String name; // 할 일 이름
     private Boolean isDone; // 완료 여부
