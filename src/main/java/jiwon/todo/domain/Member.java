@@ -12,11 +12,16 @@ public class Member {
 
     @Id @GeneratedValue
     @Column(name = "member_id", unique = true)
-    private Long id;
+    private Long id; // PK
+
+    @Column(unique = true)
+    private String loginId; // 사용자가 설정하는 ID(중복x)
 
     private String password;
+    private String name; // 이름 혹은 닉네임
 
-    private String name;
+    @Column(unique = true)
+    private String email; // 이메일(중복x)
 
     @OneToMany(mappedBy = "userId")
     private List<Todo> todos = new ArrayList<>();
