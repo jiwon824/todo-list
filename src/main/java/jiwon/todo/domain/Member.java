@@ -26,6 +26,16 @@ public class Member {
     @OneToMany(mappedBy = "userId")
     private List<Todo> todos = new ArrayList<>();
 
+
+    // == 생성자 ==
+    public Member(Long id, String loginId, String password, String name, String email) {
+        this.id = id;
+        this.loginId = loginId;
+        this.password = password;
+        this.name = name;
+        this.email = email;
+    }
+
     // == 연관관계 편의 메서드 ==
     public void addTodo(Todo todo) {
         todos.add(todo);
