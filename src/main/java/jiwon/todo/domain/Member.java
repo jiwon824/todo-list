@@ -23,7 +23,7 @@ public class Member {
     @Column(unique = true)
     private String email; // 이메일(중복x)
 
-    @OneToMany(mappedBy = "userId")
+    @OneToMany(mappedBy = "member")
     private List<Todo> todos = new ArrayList<>();
 
 
