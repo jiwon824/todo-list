@@ -18,7 +18,7 @@ class MemberServiceTest {
     @Test
     public void 회원가입() {
         // given
-        Member member = new Member(100000L, "loginId", "password", "userName", "todo123@naver.com");
+        Member member = new Member("loginId", "password", "userName", "todo123@naver.com");
 
         // when
         Long joinedId = memberService.join(member);

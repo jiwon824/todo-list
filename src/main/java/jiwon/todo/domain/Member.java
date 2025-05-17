@@ -28,8 +28,10 @@ public class Member {
 
 
     // == 생성자 ==
-    public Member(Long id, String loginId, String password, String name, String email) {
-        this.id = id;
+
+    protected Member() {} // JPA 기본 생성자
+
+    public Member(String loginId, String password, String name, String email) {
         this.loginId = loginId;
         this.password = password;
         this.name = name;
