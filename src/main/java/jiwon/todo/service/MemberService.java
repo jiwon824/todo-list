@@ -23,8 +23,13 @@ public class MemberService {
     }
 
     private void validateDuplicateMember(Member member) {
-        // id 중복 검사
-        // EXCEPTION
+        if (memberRepository.existsByLoginId(member.getLoginId())) {
+            throw new IllegalStateException("loginId is already used");
+        }
+
+        if (memberRepository.existsByEmail(member.getEmail())) {
+            throw new IllegalStateException("email is already registered.");
+        }
     }
 
     public Member findById(Long id){
