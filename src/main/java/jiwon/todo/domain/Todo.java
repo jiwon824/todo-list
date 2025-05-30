@@ -1,12 +1,9 @@
 package jiwon.todo.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDateTime;
 
@@ -16,7 +13,12 @@ import java.time.LocalDateTime;
 public class Todo {
 
     @Id @GeneratedValue
+    @Column(name = "todo_id")
     private Long id; // PK
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id") // FK
+    private Member member;
 
     private String name; // 할 일 이름
     private Boolean isDone; // 완료 여부
@@ -35,5 +37,10 @@ public class Todo {
         this.name = name;
         this.isDone = isDone;
         updatedAt = LocalDateTime.now();
+    }
+
+    // protected 로 제한적 접근
+    protected void setMember(Member member) {
+        this.member = member;
     }
 }

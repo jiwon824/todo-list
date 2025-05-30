@@ -3,9 +3,11 @@ HELP.md
 build/
 out/
 
-# application 설정 파일 무시
+# 환경 설정
+.env
+*.env
 src/main/resources/application.yml
-src/main/resources/application-*.yml
+src/test/resources/application.yml
 
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
@@ -46,6 +48,3 @@ bin/
 
 # Log
 *.log
-
-# 환경 설정
-.env
